@@ -4,13 +4,13 @@
             <!-- 左边 客户跟进 -->
             <el-col :span="10">
                 <div class="grid-content bg-purple content_right">
-                    <h4 class="title">团队成员 <el-button type="primary" size="medium" round >保存</el-button></h4>
-                    <el-form ref="form" :model="basic" label-width="80px">
+                    <h4 class="title">团队成员 <el-button type="primary" size="medium" @click="saveClick" round >确认保存</el-button></h4>
+                    <el-form ref="form" :model="basic" label-width="100px">
                         <el-form-item label="客户姓名">
-                            <el-input v-model="basic.kehu_name"></el-input>
+                            <el-input v-model="basic.kehu_name" :disabled="true"></el-input>
                         </el-form-item>
                         <el-form-item label="手机号">
-                            <el-input v-model="basic.mobile"></el-input>
+                            <el-input v-model="basic.mobile" :disabled="true"></el-input>
                         </el-form-item>
                         <el-form-item label="计划日分配数">
                             <el-input v-model="basic.fenpei"></el-input>
@@ -20,7 +20,7 @@
                             <el-radio v-model="basic.shuju" label="关闭">关闭</el-radio>
                         </el-form-item>
                         <el-form-item label="是否允许登录">
-                            <el-radio v-model="basic.shuju" label="允许登录">允许登录</el-radio>
+                            <el-radio v-model="basic.yunxu" label="允许登录">允许登录</el-radio>
                             <el-radio v-model="basic.yunxu" label="禁止登录">禁止登录</el-radio>
                         </el-form-item>
                     </el-form>
@@ -35,17 +35,24 @@
     data() {
       return {
         basic: {
-            kehu_name:'请输入',
-            mobile:'请输入',
+            kehu_name:'梁显法',
+            mobile:'18123584452',
             fenpei:'10',
             shuju:'开启',
-            yunxu:'允许登录'
-            
-            
+            yunxu:'允许登录',    
         }
       }
+    },
+    methods:{
+        saveClick(){
+            console.log('11');
+            this.$message({
+                message: '保存成功！',type: 'success'
+            });
+            //回到我的团队
+            this.$router.push({ name:'teammine'})
+        }
     }
-   
   };
 </script>
 <style>
@@ -73,5 +80,4 @@
   .content_right .title button{
       float: right
   }
-
 </style>

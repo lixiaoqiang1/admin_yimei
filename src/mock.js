@@ -28,16 +28,16 @@ Mock.mock('/api/wodekehu',{
 //团队客户
 Mock.mock('/api/tuandui',{
     'data|1-2':[
-        {'id_kehu':'1','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
-        {'id_kehu':'2','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
-        {'id_kehu':'13','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
-        {'id_kehu':'14','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
-        {'id_kehu':'15','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
-        {'id_kehu':'1','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
-        {'id_kehu':'1','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
-        {'id_kehu':'1','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
-        {'id_kehu':'1','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
-        {'id_kehu':'1','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
+        {'id_kehu':'122','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
+        {'id_kehu':'321','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
+        {'id_kehu':'133','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
+        {'id_kehu':'145','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
+        {'id_kehu':'155','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
+        {'id_kehu':'112','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
+        {'id_kehu':'114','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
+        {'id_kehu':'145','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
+        {'id_kehu':'165','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
+        {'id_kehu':'198','isname':'张三1','mobile':'15415151515','plan':'2','existing':'32','actual':'32'},
     ]
 });
 

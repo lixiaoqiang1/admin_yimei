@@ -24,19 +24,40 @@
                     <el-table-column prop="plan" label="计划日分配数"></el-table-column>
                     <el-table-column prop="actual" label="实际分配数"></el-table-column>
                     <el-table-column prop="existing" label="现有客户数"></el-table-column>
-                    <el-table-column prop="new_data" label="新数据开关">
+                    <!-- <el-table-column label="新数据开关">
                         <template slot-scope="scope">
-                            <div>
-                            
+                            <div class="liMenu">
+                                <a 
+                                :class="idx==index?'active':''" @click="btnshuju(item,idx,scope.row)" v-for="(item,idx) in kaiguan1" 
+                                :key="idx">{{item}}
+                                </a>
                             </div>
                         </template>
+                    </el-table-column> -->
+                    <el-table-column property="new_data" label="新数据开关">
+                        <template scope="scope">
+                            <el-switch
+                                on-text ="是"
+                                off-text = "否"
+                                on-color="#5B7BFA"
+                                off-color="#dadde5"
+                                v-model="scope.row.new_data" 
+                                @change=newdata_change(scope.$index,scope.row)                
+                            >
+                            </el-switch>
+                        </template>
                     </el-table-column>
-                    <el-table-column prop="ifnot" label="是否允许登录">
-                        <template slot-scope="scope">
-                            <div class="fund_box"> 
-                                <a class="{ischeck == index ? 'active':''}" @click="activeClick(1,scope.row)">开启</a>
-                                <a class="{ischeck == index ? 'active':''}" @click="activeClick(2,scope.row)">关闭</a>
-                            </div>
+                    <el-table-column property="menusstate" label="是否允许登录">
+                        <template scope="scope">
+                            <el-switch
+                                on-text ="是"
+                                off-text = "否"
+                                on-color="#5B7BFA"
+                                off-color="#dadde5"
+                                v-model="scope.row.menusstate" 
+                                @change=menu_change(scope.$index,scope.row)                
+                            >
+                            </el-switch>
                         </template>
                     </el-table-column>
                     <el-table-column label="操作">
@@ -50,6 +71,7 @@
                 <!-- 分页end -->
             </div>
             <!-- 表格end -->
+            
         </div>
     </div>
 </template>
@@ -63,8 +85,11 @@ import pageNation from '@/components/pageNation/index'     // 引入分页
 	    page_total: 200, // 总数据条数
         page_size: 8,//每页数量
         userList: [],//table数据
-        ifnotindex:'',
-        current: 0,
+        // index:0,
+        // kaiguan1:['开启','关闭'],
+        new_data:false,
+        menusstate:false,
+
         multipleSelection:[],//table勾选项
         in_budget:[
             { text: '1W以下', value: '1W以下' },
@@ -104,15 +129,18 @@ import pageNation from '@/components/pageNation/index'     // 引入分页
         addkehu(row){
            console.log(row)
         },
-        choice(index) {
-            console.log(index)
-            this.current = index;
+         //新数据开关
+        // btnshuju(item,idx,row){
+        //     console.log(item);
+        //     console.log(idx);
+        //     console.log(row.id_kehu);
+        //     this.index=idx;
+        // },
+        menu_change:function(index,row){
+            console.log(index,row);
         },
-        //新数据开关
-        activeClick(index,row){    
-            console.log(index)           
-            console.log(row.id_kehu)           
-            this.ifnotindex = index;
+        newdata_change:function(index,row){
+            console.log(index,row);
         },
         handleSelectionChange(val) {
             this.multipleSelection = val;
@@ -150,6 +178,6 @@ import pageNation from '@/components/pageNation/index'     // 引入分页
     .table{
         width: 100%;margin-top: 15px;display: inline-block
     }
-    /* .fund_box a{display: none}
-    .fund_box .active{display: block} */
+    /* .liMenu a{display: none}
+    .liMenu .active{display: block} */
 </style>
