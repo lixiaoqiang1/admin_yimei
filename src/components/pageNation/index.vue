@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      pageSizes: [5, 10, 20, 50, 100],
+      pageSizes: [10, 20, 50, 100],
       page: {
         page_index: 1,
         page_limit: 10

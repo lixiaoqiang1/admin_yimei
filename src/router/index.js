@@ -36,13 +36,12 @@ export const constantRoutes = [
     component: () => import('@/views/login/index'),
     hidden: true
   },
-
+  //注册页
   {
     path: '/404',
     component: () => import('@/views/404'),
     hidden: true
   },
-
   {
     path: '/',
     component: Layout,
@@ -54,175 +53,85 @@ export const constantRoutes = [
       meta: { title: '概括', icon: 'dashboard' }
     }]
   },
-  
   {
-    path: '/friends',
+    path: '/customermine',
     component: Layout,
-    redirect: '/friends/employees',
-    name: 'Nested',
-    meta: {
-      title: '微信管理',
-      icon: 'wecheat'
-    },
     children: [
       {
-        path: 'employees',
-        component: () => import('@/views/friends/employees/index'), // Parent router-view
-        name: 'employees',
-        meta: { title: '员工微信列表' },
-        children: [
-          {
-            path: 'wx_friends',
-            component: () => import('@/views/friends/employees/wx_friends'),
-            name: 'wx_friends',
-            meta: { title: '微信聊天/好友聊天' },
-            children: [
-              {
-                path: 'conlog',
-                component: () => import('@/views/friends/employees/wx_friends/conlog'),
-                name: 'conlog',
-                meta: { title: '登录日志' }
-              },
-              {
-                path: 'group_chat',
-                component: () => import('@/views/friends/employees/wx_friends/group_chat'),
-                name: 'group_chat',
-                meta: { title: '微信群聊' }
-              }
-            ]
-          },
-          {
-            path: 'newfriends',
-            component: () => import('@/views/friends/employees/newfriends'),
-            name: 'newfriends',
-            meta: { title: '新加好友' }
-          },
-        ]
+        path: 'customermine',
+        name: 'customermine',
+        component: () => import('@/views/customermine/index'),
+        meta: { title: '我的客户', icon: 'form' }
       },
       {
-        path: 'friends_list',
-        component: () => import('@/views/friends/friends_list/index'),
-        meta: { title: '好友列表' }
-      }
-    ]
-  },
-  {
-    path: '/call',
-    component: Layout,
-    redirect: '/call/callrecords',
-    name: 'Call',
-    meta: {
-      title: '通话与短信',
-      icon: 'tonghua_sms'
-    },
-    children:[
-     
-      {
-        path: 'callrecords',
-        component: () => import('@/views/call/callrecords/index'),
-        meta: { title: '通话记录' },
-      },
-      { //需要跳转的页面，
-        path: 'records_detail_index',
-        component: () => import('@/views/call/callrecords/records_detail/index'),
-        name: 'records_detail',
-        meta: { title: '查看某人详细通话记录', noCache: true, activeMenu: '@/views/call/callrecords/records_detail/index'},
+        path: 'addminebox',
+        name: 'addminebox',
+        component: () => import('@/views/customermine/addminebox/index'),
+        meta: { title: '添加客户', icon: 'example', noCache: true, activeMenu: '@/views/customermine/minedetail/index'},
         hidden: true   //是否显示在菜单
       },
       {
-        path: 'callvoice',
-        component: () => import('@/views/call/callvoice/index'),
-        meta: { title: '通话录音' }
-      },
-      {
-        path: 'mobile_sms',
-        component: () => import('@/views/call/mobile_sms/index'),
-        meta: { title: '手机短信' }
-      },
-    ]
-  },
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: '敏感行为', icon: 'example' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: '行为详情', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: '数据统计', icon: 'form' }
+        path: 'minedetail',
+        component: () => import('@/views/customermine/minedetail/index'),
+        name: 'minedetail',
+        meta: { title: '客户详情', icon: 'example', noCache: true, activeMenu: '@/views/customermine/minedetail/index'},
+        hidden: true   //是否显示在菜单
       }
     ]
   },
   {
-    path: '/shezhi',
+    path: '/customerteam',
     component: Layout,
-    redirect: '/shezhi/menu1',
-    name: 'Nested',
-    meta: {
-      title: '设置',
-      icon: 'wecheat'
-    },
     children: [
       {
-        path: 'menu1',
-        component: () => import('@/views/shezhi/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: '员工微信列表' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/shezhi/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/shezhi/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/shezhi/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/shezhi/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          }
-        ]
+        path: 'customerteam',
+        name: 'customerteam',
+        component: () => import('@/views/customerteam/index'),
+        meta: { title: '团队客户', icon: 'form' }
+      }
+    ]
+  },
+  {
+    path: '/customerpublic',
+    component: Layout,
+    children: [
+      {
+        path: 'customerpublic',
+        name: 'customerpublic',
+        component: () => import('@/views/customerpublic/index'),
+        meta: { title: '公共池客户', icon: 'form' }
+      }
+    ]
+  },
+  {
+    path: '/teammine',
+    component: Layout,
+    children: [
+      {
+        path: 'teammine',
+        name: 'teammine',
+        component: () => import('@/views/teammine/index'),
+        meta: { title: '我的团队', icon: 'form' }
       },
       {
-        path: 'friends_list',
-        component: () => import('@/views/shezhi/friends_list/index'),
-        meta: { title: '好友列表' }
+        path: 'members',
+        name: 'members',
+        component: () => import('@/views/teammine/members/index'),
+        meta: { title: '团队成员', icon: 'example', noCache: true, activeMenu: '@/views/teammine/members/index'},
+        hidden: true   //是否显示在菜单
+      },
+    ]
+  },
+  
+  {
+    path: '/permissions',
+    component: Layout,
+    children: [
+      {
+        path: 'permissions',
+        name: 'permissions',
+        component: () => import('@/views/permissions/index'),
+        meta: { title: '权限说明', icon: 'form' }
       }
     ]
   },

@@ -4,7 +4,6 @@
       <div class="title-container">
         <h3 class="title">系统登录</h3>
       </div>
-
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -55,6 +54,7 @@
       </el-form-item>
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click="register">注册</el-button>
 
       <div class="tips">
         <span style="margin-right:20px;">用户名: admin</span>
@@ -133,6 +133,11 @@ export default {
           return false
         }
       })
+    },
+    register(){
+      console.log('111')
+      //  this.$router.push({ path:'/register' });
+       this.$router.push({ path: '/register', query: { id: 12 }}) //带参跳转
     }
   }
 }
